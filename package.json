@@ -18,8 +18,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "vue-templete",
-    "express-templete",
+    "vue-template",
+    "express-template",
     "express-ts-starter"
   ],
   "author": "django",
