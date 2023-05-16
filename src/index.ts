@@ -22,27 +22,14 @@ async function main() {
       choices: [
         ProjectTemplate.Vue3,
         ProjectTemplate.Nuxt,
-        ProjectTemplate.Express
+        ProjectTemplate.Express,
+        ProjectTemplate.NPM
         // 添加更多项目模板选项
       ],
     },
   ]);
 
-  switch (projectChoice) {
-    case ProjectTemplate.Vue3:
-      await generateProject(projectChoice);
-      break;
-    case ProjectTemplate.Nuxt:
-      await generateProject(projectChoice);
-      break;
-    case ProjectTemplate.Express:
-      await generateProject(projectChoice);
-      break;
-    // 处理其他项目模板
-    default:
-      console.log('未知的项目模板，请重新选择.');
-      break;
-  }
+  await generateProject(projectChoice);
 }
 
 main();

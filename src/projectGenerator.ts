@@ -20,6 +20,9 @@ export async function generateProject(template: ProjectTemplate) {
     case ProjectTemplate.Express:
       generateExpressProject(projectDir);
       break;
+    case ProjectTemplate.NPM:
+      generateNPMProject(projectDir);
+      break;
     // 处理其他项目模板
     default:
       console.log('未知的项目模板，请重新选择.');
@@ -55,6 +58,13 @@ function generateVueCliProject(projectDir: string) {
 
 function generateNuxtProject(projectDir: string) {
   const templateRepoUrl = 'https://github.com/sixdjango/vitesse-nuxt3.git';
+  execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' });
+
+  removeGitFolder(projectDir)
+}
+
+function generateNPMProject(projectDir: string) {
+  const templateRepoUrl = 'https://github.com/sixdjango/npm-project-template.git';
   execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' });
 
   removeGitFolder(projectDir)
