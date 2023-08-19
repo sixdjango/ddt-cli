@@ -23,6 +23,9 @@ export async function generateProject(template: ProjectTemplate) {
     case ProjectTemplate.NPM:
       generateNPMProject(projectDir);
       break;
+    case ProjectTemplate.React:
+      generateReactProject(projectDir);
+      break;
     // 处理其他项目模板
     default:
       console.log('未知的项目模板，请重新选择.');
@@ -67,6 +70,12 @@ function generateNPMProject(projectDir: string) {
   const templateRepoUrl = 'https://github.com/sixdjango/npm-project-template.git';
   execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' });
 
+  removeGitFolder(projectDir)
+}
+
+function generateReactProject(projectDir: string) {
+  const templateRepoUrl = 'https://github.com/sixdjango/react-vite-templete.git';
+  execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' });
   removeGitFolder(projectDir)
 }
 

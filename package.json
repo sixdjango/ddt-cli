@@ -1,10 +1,11 @@
 {
   "name": "ddt-cli",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "description": "",
-  "main": "dist/bundle.cjs",
+  "type": "module",
+  "main": "dist/bundle.js",
   "bin": {
-    "ddt-cli": "dist/bundle.cjs"
+    "ddt-cli": "dist/bundle.js"
   },
   "files": [
     "dist"
@@ -35,6 +36,7 @@
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "inquirer": "^9.1.5"
+    "inquirer": "^9.1.5",
+    "tslib": "^2.6.2"
   }
 }

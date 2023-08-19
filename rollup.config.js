@@ -10,18 +10,17 @@ import addShebang from 'rollup-plugin-add-shebang';
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'dist/bundle.cjs',
-    format: 'cjs',
+    file: 'dist/bundle.js',
   },
   plugins: [
     addShebang({
-      include: 'dist/bundle.cjs'
+      include: 'dist/bundle.js'
     }),
     typescript(),
-    nodeResolve({
-      exportConditions: ['node'], // add node option here,
-      preferBuiltins: false,
-    }),
+    // nodeResolve({
+    //   exportConditions: ['node'], // add node option here,
+    //   preferBuiltins: false,
+    // }),
     
     commonjs({
       only: [/^\.{0,2}\//]

@@ -3,7 +3,7 @@ import inquirer from 'inquirer';
 import { ProjectTemplate } from './enum';
 import { generateProject } from './projectGenerator';
 import pkg from '../package.json'
-
+import 'tslib';
 
 const version = pkg.version;
 
@@ -23,7 +23,8 @@ async function main() {
         ProjectTemplate.Vue3,
         ProjectTemplate.Nuxt,
         ProjectTemplate.Express,
-        ProjectTemplate.NPM
+        ProjectTemplate.NPM,
+        ProjectTemplate.React,
         // 添加更多项目模板选项
       ],
     },
