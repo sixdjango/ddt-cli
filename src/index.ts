@@ -1,16 +1,18 @@
 // src/index.ts
-import inquirer from 'inquirer';
-import { ProjectTemplate } from './enum';
-import { generateProject } from './projectGenerator';
-import pkg from '../package.json'
-import 'tslib';
+import inquirer from 'inquirer'
+import { ProjectTemplate } from './enum'
+import { generateProject } from './projectGenerator'
 
-const version = pkg.version;
+// 对于 JSON 文件
+import * as pkg from '../package.json'
+import 'tslib'
+
+const version = pkg.version
 
 // 查看版本号
 if (process.argv.includes('-v') || process.argv.includes('--version')) {
-  console.log(version);
-  process.exit(0);
+  console.log(version)
+  process.exit(0)
 }
 
 async function main() {
@@ -28,9 +30,9 @@ async function main() {
         // 添加更多项目模板选项
       ],
     },
-  ]);
+  ])
 
-  await generateProject(projectChoice);
+  await generateProject(projectChoice)
 }
 
-main();
+main()

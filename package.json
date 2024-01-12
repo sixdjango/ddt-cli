@@ -1,42 +1,108 @@
 {
   "name": "ddt-cli",
-  "version": "1.0.9",
-  "description": "",
+  "version": "0.1.0",
+  "description": "初始化模版项目的 cli",
   "type": "module",
-  "main": "dist/bundle.js",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "types/index.d.ts",
+  "jsdelivr": "dist/iife/index.js",
+  "unpkg": "dist/iife/index.js",
+  "miniprogram": "dist/cjs",
   "bin": {
-    "ddt-cli": "dist/bundle.js"
+    "ddt-cli": "dist/esm/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sixdjango/ddt-cli.git"
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "django",
+  "homepage": "https://github.com/sixdjango",
+  "repository": "https://github.com/sixdjango/ddt-cli",
+  "bugs": {
+    "url": "https://github.com/sixdjango/ddt-cli/issues"
   },
   "keywords": [
-    "vue-template",
-    "express-template",
-    "express-ts-starter"
+    "rollup",
+    "bundle",
+    "vitest",
+    "vitepress",
+    "typescript"
   ],
-  "author": "django",
-  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:types && npm run build:libs && npm run build:vp",
+    "build:types": "rimraf ./types && tsc --resolveJsonModule --declaration --emitDeclarationOnly --outDir types -p tsconfig.lib.json",
+    "build:libs": "rimraf ./dist && rimraf ./zipDist && rollup --config rollup.config.ts --bundleConfigAsCjs --configPlugin @rollup/plugin-typescript",
+    "build:docs": "typedoc",
+    "build:vp": "typedoc && vitepress build .",
+    "test:unit": "vitest",
+    "test:cov": "vitest run --coverage",
+    "preview:docs": "vitepress dev .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "ddt-cli": "dist/esm/index.js"
+  },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.1",
-    "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@types/inquirer": "^9.0.3",
-    "rollup": "^3.20.0",
-    "rollup-plugin-add-shebang": "^0.3.1",
-    "rollup-plugin-typescript2": "^0.34.1",
-    "typescript": "^5.0.2"
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/archiver": "^6.0.2",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "@vitest/coverage-v8": "^1.1.2",
+    "archiver": "^6.0.1",
+    "bumpp": "^9.2.1",
+    "conventional-changelog": "^5.1.0",
+    "conventional-changelog-cli": "^4.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "inquirer": "^9.2.12",
+    "lint-staged": "^13.2.2",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.2",
+    "simple-git-hooks": "^2.9.0",
+    "tslib": "^2.6.2",
+    "typedoc": "^0.25.6",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "^5.3.3",
+    "vitepress": "1.0.0-rc.35",
+    "vitest": "^1.1.2",
+    "vue": "^3.4.5"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged && npm run typecheck",
+    "commit-msg": "npx --no -- commitlint --edit ${1}"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
-    "inquirer": "^9.1.5",
-    "tslib": "^2.6.2"
+    "rollup-plugin-add-shebang": "^0.3.1"
   }
 }

@@ -1,12 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
+    "baseUrl": ".",
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["ESNext", "DOM"],
     "moduleResolution": "node",
+    "strict": true,
+    "pretty": true,
+    "allowJs": true,
+    "listFiles": false,
+    "declaration": false,
+    "skipLibCheck": true,
     "esModuleInterop": true,
+    "traceResolution": false,
+    "inlineSourceMap": false,
     "resolveJsonModule": true,
-    "outDir": "dist",
-    "sourceMap": true,
-    "lib": ["esnext", "es2020.promise"],
-  }
+    "listEmittedFiles": false,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "types": ["vitest"]
+  },
+  "compileOnSave": false,
+  "exclude": ["node_modules", "dist"],
+  "include": ["./**/*.ts"]
 }
