@@ -4,7 +4,7 @@ import typescript from '@rollup/plugin-typescript'
 import terser from '@rollup/plugin-terser'
 import zipPlugin from './scripts/rollupPluginZip'
 import json from '@rollup/plugin-json'
-import addShebangPlugin from 'rollup-plugin-add-shebang'
+import addShebangPlugin from './scripts/rollupPluginAddShebang'
 import commonjs from '@rollup/plugin-commonjs'
 
 export default defineConfig({

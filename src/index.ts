@@ -26,7 +26,9 @@ async function main() {
         ProjectTemplate.Nuxt,
         ProjectTemplate.Express,
         ProjectTemplate.NPM,
+        ProjectTemplate.NPM_COMPONENT,
         ProjectTemplate.React,
+        ProjectTemplate.WASM,
         // 添加更多项目模板选项
       ],
     },

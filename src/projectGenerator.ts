@@ -23,8 +23,14 @@ export async function generateProject(template: ProjectTemplate) {
     case ProjectTemplate.NPM:
       generateNPMProject(projectDir)
       break
+    case ProjectTemplate.NPM_COMPONENT:
+      generateNPM_COMPONENTProject(projectDir)
+      break
     case ProjectTemplate.React:
       generateReactProject(projectDir)
+      break
+    case ProjectTemplate.WASM:
+      generateWASMProject(projectDir)
       break
     // 处理其他项目模板
     default:
@@ -66,7 +72,21 @@ function generateNuxtProject(projectDir: string) {
 }
 
 function generateNPMProject(projectDir: string) {
-  const templateRepoUrl = 'https://github.com/sixdjango/npm-project-template.git'
+  const templateRepoUrl = 'https://github.com/sixdjango/ts-lib-rollup-starter.git'
+  execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
+
+  removeGitFolder(projectDir)
+}
+
+function generateNPM_COMPONENTProject(projectDir: string) {
+  const templateRepoUrl = 'https://github.com/sixdjango/ts-react-component-lib-starter.git'
+  execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
+
+  removeGitFolder(projectDir)
+}
+
+function generateWASMProject(projectDir: string) {
+  const templateRepoUrl = 'https://github.com/sixdjango/wasm-pack-starter.git'
   execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
 
   removeGitFolder(projectDir)
