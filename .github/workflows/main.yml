@@ -3,9 +3,9 @@ name: CI
 # 触发工作流程的事件
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 # 按顺序运行作业
 jobs:
