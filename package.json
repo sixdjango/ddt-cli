@@ -50,7 +50,8 @@
     "typecheck": "tsc --noEmit --skipLibCheck",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "ddt-cli": "dist/esm/index.js"
+    "ddt-cli": "dist/esm/index.js",
+    "github:ci": "npm version patch -m 'chore(release): bump version to %s' && git push && git push --tags"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",

@@ -5,5 +5,6 @@ export enum ProjectTemplate {
   NPM = 'NPM',
   NPM_COMPONENT = 'NPM_Component',
   React = 'React',
+  Next = 'Next',
   WASM = 'WASM',
 }

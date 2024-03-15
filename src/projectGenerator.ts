@@ -58,7 +58,7 @@ function generateExpressProject(projectDir: string) {
 }
 
 function generateVueCliProject(projectDir: string) {
-  const templateRepoUrl = 'https://github.com/sixdjango/vitesse.git'
+  const templateRepoUrl = 'https://github.com/yc-technology/vue3-template.git'
   execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
 
   removeGitFolder(projectDir)
