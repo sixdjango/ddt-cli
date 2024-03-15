@@ -54,7 +54,7 @@
     "github:ci": "npm version patch -m 'chore(release): bump version to %s' && git push && git push --tags"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.4",
+    "@commitlint/cli": "^19.2.0",
     "@commitlint/config-conventional": "^18.4.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
