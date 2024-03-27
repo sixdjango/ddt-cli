@@ -17,14 +17,17 @@ export async function generateProject(template: ProjectTemplate) {
     case ProjectTemplate.Nuxt:
       generateNuxtProject(projectDir)
       break
+    case ProjectTemplate.Next:
+      generateNextProject(projectDir)
+      break
     case ProjectTemplate.Express:
       generateExpressProject(projectDir)
       break
     case ProjectTemplate.NPM:
       generateNPMProject(projectDir)
       break
-    case ProjectTemplate.NPM_COMPONENT:
-      generateNPM_COMPONENTProject(projectDir)
+    case ProjectTemplate.REACT_COMPONENT:
+      generateReactComponentProject(projectDir)
       break
     case ProjectTemplate.React:
       generateReactProject(projectDir)
@@ -71,6 +74,13 @@ function generateNuxtProject(projectDir: string) {
   removeGitFolder(projectDir)
 }
 
+function generateNextProject(projectDir: string) {
+  const templateRepoUrl = 'https://github.com/yc-technology/nextjs-template.git'
+  execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
+
+  removeGitFolder(projectDir)
+}
+
 function generateNPMProject(projectDir: string) {
   const templateRepoUrl = 'https://github.com/sixdjango/ts-lib-rollup-starter.git'
   execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
@@ -78,8 +88,8 @@ function generateNPMProject(projectDir: string) {
   removeGitFolder(projectDir)
 }
 
-function generateNPM_COMPONENTProject(projectDir: string) {
-  const templateRepoUrl = 'https://github.com/sixdjango/ts-react-component-lib-starter.git'
+function generateReactComponentProject(projectDir: string) {
+  const templateRepoUrl = 'https://github.com/yc-technology/react-component.git'
   execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
 
   removeGitFolder(projectDir)

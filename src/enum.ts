@@ -3,7 +3,7 @@ export enum ProjectTemplate {
   Nuxt = 'Nuxt',
   Express = 'Express',
   NPM = 'NPM',
-  NPM_COMPONENT = 'NPM_Component',
+  REACT_COMPONENT = 'React_Component',
   React = 'React',
   Next = 'Next',
   WASM = 'WASM',

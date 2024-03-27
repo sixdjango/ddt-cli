@@ -24,9 +24,10 @@ async function main() {
       choices: [
         ProjectTemplate.Vue3,
         ProjectTemplate.Nuxt,
+        ProjectTemplate.Next,
         ProjectTemplate.Express,
         ProjectTemplate.NPM,
-        ProjectTemplate.NPM_COMPONENT,
+        ProjectTemplate.REACT_COMPONENT,
         ProjectTemplate.React,
         ProjectTemplate.WASM,
         // 添加更多项目模板选项
