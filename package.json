@@ -1,6 +1,6 @@
 {
   "name": "ddt-cli",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "packageManager": "pnpm@8.15.0",
   "description": "初始化模版项目的 cli",
   "type": "module",
