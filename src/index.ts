@@ -30,6 +30,7 @@ async function main() {
         ProjectTemplate.REACT_COMPONENT,
         ProjectTemplate.React,
         ProjectTemplate.WASM,
+        ProjectTemplate.React_Rsbuild_Semi,
         // 添加更多项目模板选项
       ],
     },

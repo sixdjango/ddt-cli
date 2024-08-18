@@ -35,6 +35,9 @@ export async function generateProject(template: ProjectTemplate) {
     case ProjectTemplate.WASM:
       generateWASMProject(projectDir)
       break
+    case ProjectTemplate.React_Rsbuild_Semi:
+      cloneProject(projectDir, 'git@github.com:sixdjango/react-rsbuild-starter.git')
+      break
     // 处理其他项目模板
     default:
       console.log('未知的项目模板，请重新选择.')
@@ -104,6 +107,12 @@ function generateWASMProject(projectDir: string) {
 
 function generateReactProject(projectDir: string) {
   const templateRepoUrl = 'https://github.com/sixdjango/react-vite-templete.git'
+  execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
+  removeGitFolder(projectDir)
+}
+
+function cloneProject(projectDir: string, gitUrl: string) {
+  const templateRepoUrl = gitUrl
   execSync(`git clone ${templateRepoUrl} ${projectDir}`, { stdio: 'inherit' })
   removeGitFolder(projectDir)
 }

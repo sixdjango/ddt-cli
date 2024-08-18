@@ -7,4 +7,5 @@ export enum ProjectTemplate {
   React = 'React',
   Next = 'Next',
   WASM = 'WASM',
+  React_Rsbuild_Semi = 'React_Rsbuild_Semi',
 }
