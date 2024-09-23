@@ -31,6 +31,7 @@ async function main() {
         ProjectTemplate.React,
         ProjectTemplate.WASM,
         ProjectTemplate.React_Rsbuild_Semi,
+        ProjectTemplate.React_Chrome_Extension,
         // 添加更多项目模板选项
       ],
     },

@@ -38,6 +38,9 @@ export async function generateProject(template: ProjectTemplate) {
     case ProjectTemplate.React_Rsbuild_Semi:
       cloneProject(projectDir, 'git@github.com:sixdjango/react-rsbuild-starter.git')
       break
+    case ProjectTemplate.React_Chrome_Extension:
+      cloneProject(projectDir, 'git@github.com:sixdjango/chrome-react-extension-starter.git')
+      break
     // 处理其他项目模板
     default:
       console.log('未知的项目模板，请重新选择.')

@@ -8,4 +8,5 @@ export enum ProjectTemplate {
   Next = 'Next',
   WASM = 'WASM',
   React_Rsbuild_Semi = 'React_Rsbuild_Semi',
+  React_Chrome_Extension = 'React_Chrome_Extension',
 }
